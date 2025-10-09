@@ -1,0 +1,104 @@
+@import 'src/assets/style/base/breakpoints.scss';
+
+app-card-count {
+    .card-count-holder {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--spacing-m);
+
+        @include lt-desktop {
+            gap: var(--spacing-s);
+        }
+
+        .item-card {
+            min-width: 196px;
+            height: 104px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: var(--spacing-s);
+            border-radius: 8px;
+            box-shadow: 0 1px 5px 0 var(--black-rgb-014);
+            color: var(--white);
+
+            @include mobile {
+                min-width: 71px;
+                height: 81px;
+                padding: 0 10px;
+            }
+
+            .title-count {
+                width: calc(100% - 80px);
+                padding-right: var(--spacing-m);
+                border-right: 2px solid var(--orange-12);
+
+                @include mobile {
+                    width: 100%;
+                    border-right: none;
+                    padding-right: 0;
+                }
+
+                h4 {
+                    font-size: 16px;
+                    font-weight: 500;
+                    line-height: 2;
+                    color: var(--primary-t-5);
+                    margin-bottom: var(--spacing-xs);
+
+                    @include mobile {
+                        font-size: 14px;
+                        line-height: normal;
+                        text-align: center;
+                    }
+                }
+
+                .count {
+                    font-size: 14px;
+                    font-weight: normal;
+                    line-height: 1.4;
+                    color: var(--gray-4);
+
+                    @include mobile {
+                        text-align: center;
+                        font-size: 12px;
+                        font-weight: 300;
+                        line-height: normal;
+                    }
+
+                    span {
+                        font-size: 22px;
+                        font-weight: bold;
+                        line-height: normal;
+                        color: var(--primary-t-1);
+
+                        @include mobile {
+                            font-size: 16px;
+                            line-height: 2;
+                        }
+                    }
+                }
+            }
+
+            .icon {
+                width: 64px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                @include mobile {
+                    display: none;
+                }
+
+                .mat-icon {
+                    width: 36px;
+                    height: 36px;
+                    font-size: 36px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: var(--primary-t-8);
+                }
+            }
+        }
+    }
+}

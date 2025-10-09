@@ -1,0 +1,14 @@
+<div class="tab-menu-inner-page">
+    <div class="arrow arrow-right" (click)="scrollWidgetPlus()" [ngClass]="{'active': showArrowRight}">
+        <mat-icon>keyboard_arrow_right</mat-icon>
+    </div>
+    <div class="list-tab-menu" swiper-scroll (scroll)="onScroll()" #scrollContainer>
+        @for (tab of tabsList; track tab) {
+        <a [ngClass]="{'disabled': tab.disbled}" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="active"
+            [routerLink]="tab.url"> {{tab.title}} </a>
+        }
+    </div>
+    <div class="arrow arrow-left" (click)="scrollWidgetMinus()" [ngClass]="{'active': showArrowLeft}">
+        <mat-icon>keyboard_arrow_left</mat-icon>
+    </div>
+</div>

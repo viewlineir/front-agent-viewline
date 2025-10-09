@@ -1,0 +1,124 @@
+<div class="custom-dialog-container dialog-purchased-courses" id="dialog-purchased-courses">
+    <div class="header-dialog has-title">
+        <h2 class="title">دوره های خریداری شده</h2>
+        <span class="close-dialog" (click)="close()">
+            <i class="fa-regular fa-xmark"></i>
+        </span>
+    </div>
+
+    <div class="content-dialog">
+
+        <div class="data-all-report">
+            <div class="row">
+                <div class="title-value">
+                    <div class="title">
+                        مبلغ نهایی سفارش :
+                    </div>
+                    <div class="value">
+                        <span class="orange">{{dataDialog.finalAmount| number}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="title-value">
+                    <div class="title gray">مجموع مبلغ تخفیف اختصاصی دوره ها:</div>
+                    <div class="value">
+                        <span>{{dataDialog.totalExclusiveDiscount | number}}</span>
+                        تومان
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="title-value">
+                    <div class="title gray">مبلغ تخفیف از طرف کد تخفیف نماینده :</div>
+                    <div class="value">
+                        <span>{{dataDialog.agentDiscount | number}}</span>
+                        تومان
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="title-value">
+                    <div class="title gray">نوع پرداخت :</div>
+                    <div class="value">
+                        <span>{{dataDialog.paymentType}}</span>
+                    </div>
+                </div>
+                <div class="title-value">
+                    <div class="title gray">تعداد اقساط پرداختی این سفارش :</div>
+                    <div class="value">
+                        <span>{{dataDialog.paidInstallmentsCount}}</span>
+                    </div>
+                </div>
+                <div class="title-value">
+                    <div class="title gray">تعدا اقساط بدهکار این سفارش :</div>
+                    <div class="value">
+                        <span>{{dataDialog.unpaidInstallmentsCount}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-table">
+            <div class="table-wrapper">
+                <table mat-table [dataSource]="dataDialog.courses" class="table-custom table-dashboard">
+                    <!-- row Column -->
+                    <ng-container matColumnDef="row">
+                        <th mat-header-cell *matHeaderCellDef>
+                            <!-- <span class="row-title">ردیف</span> -->
+                        </th>
+                        <td mat-cell *matCellDef="let element; let i = index">{{ i + 1 }}</td>
+                    </ng-container>
+
+                    <!-- code Column -->
+                    <ng-container matColumnDef="courses">
+                        <th mat-header-cell *matHeaderCellDef> دوره </th>
+                        <td mat-cell *matCellDef="let element">
+                            {{element.courseName}}
+                        </td>
+                    </ng-container>
+
+                    <!-- teacherName Column -->
+                    <ng-container matColumnDef="teacherName">
+                        <th mat-header-cell *matHeaderCellDef> استاد </th>
+                        <td mat-cell *matCellDef="let element">
+                            {{element.teacherName}}
+                        </td>
+                    </ng-container>
+
+                    <!-- coursePrice Column -->
+                    <ng-container matColumnDef="coursePrice">
+                        <th mat-header-cell *matHeaderCellDef> قیمت دوره </th>
+                        <td mat-cell *matCellDef="let element">
+                            {{element.coursePrice | number}}
+                        </td>
+                    </ng-container>
+
+                    <!-- discountAmount Column -->
+                    <ng-container matColumnDef="discountAmount">
+                        <th mat-header-cell *matHeaderCellDef> تخفیف دوره </th>
+                        <td mat-cell *matCellDef="let element">
+                            {{element.discountAmount | number}}
+                        </td>
+                    </ng-container>
+
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+
+                @if(dataDialog.courses.length
+                < 1){ <app-empty-list />}
+            </div>
+        </div>
+
+    </div>
+    <div class="button-box-dialog">
+        <div class="btn-jnf btn-filled">
+            <button class="button" mat-raised-button disableRipple="true" (click)="print()" color="primary">
+                <span class="text">چاپ</span>
+            </button>
+        </div>
+    </div>
+
+</div>

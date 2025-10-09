@@ -1,0 +1,90 @@
+@use "@angular/material" as mat;
+
+@include mat.core();
+
+$primary: (
+  50: var(--black),
+  59: var(--primary-t-4),
+  500: var(--primary-t-5),
+  600: var(--primary-t-1),
+  contrast: (50: var(--white),
+    51: var(--white),
+    55: var(--white),
+    59: var(--white),
+    100: var(--white),
+    200: var(--white),
+    300: var(--black),
+    400: var(--black),
+    500: var(--black),
+    600: var(--black),
+    700: var(--black),
+    800: var(--black),
+    900: var(--black),
+  ),
+);
+
+$accent: (
+  50: var(--black),
+  59: var(--orange-3),
+  500: var(--orange-13),
+  600: var(--orange-2),
+  contrast: (50: var(--white),
+    51: var(--white),
+    55: var(--white),
+    59: var(--white),
+    100: var(--white),
+    200: var(--white),
+    300: var(--black),
+    400: var(--black),
+    500: var(--black),
+    600: var(--black),
+    700: var(--black),
+    800: var(--black),
+    900: var(--black),
+  ),
+);
+
+$error: (
+  50: var(--error-1),
+  51: var(--error-1),
+  55: var(--error-1),
+  59: var(--error-1),
+  100: var(--error-1),
+  200: var(--error-1),
+  300: var(--error-1),
+  400: var(--error-1),
+  500: var(--error-1),
+  600: var(--error-1),
+  700: var(--error-1),
+  800: var(--error-1),
+  900: var(--error-1),
+  contrast: (50: var(--white),
+    51: var(--white),
+    55: var(--white),
+    59: var(--white),
+    100: var(--white),
+    200: var(--white),
+    300: var(--black),
+    400: var(--black),
+    500: var(--black),
+    600: var(--black),
+    700: var(--black),
+    800: var(--black),
+    900: var(--black),
+  ),
+);
+
+// For color: define-palette(palette, default, lighter, darker, text)
+$ava-star-light-theme: mat.m2-define-light-theme((color: (
+  primary: mat.m2-define-palette($primary, 500, 50, 59, 600),
+  accent: mat.m2-define-palette($accent, 500, 50, 59, 600),
+        // accent: mat.define-palette(mat.$green-palette, A200, A100, A400),
+        warn: mat.m2-define-palette($error, 100),
+      )));
+
+$ava-star-dark-theme: mat.m2-define-dark-theme((color: (primary: mat.m2-define-palette($primary, 500, 50, 59, 600),
+        accent: mat.m2-define-palette(mat.$m2-green-palette, A200, A100, A400),
+        warn: mat.m2-define-palette($error, 59),
+      )));
+
+@include mat.all-component-themes($ava-star-light-theme);

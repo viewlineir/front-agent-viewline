@@ -1,0 +1,52 @@
+<div class="custom-dialog-container select-thumbnail">
+    <div class="header-dialog has-title">
+        <h2 class="title">انتخاب تصویر</h2>
+        <span class="close-dialog" (click)="close()">
+            <i class="fa-regular fa-xmark"></i>
+        </span>
+    </div>
+
+    <div class="content-dialog">
+        <span class="dialog-description">لطفا تصویر خود را انتخاب و دکمه ثبت را کلیک نمایید!</span>
+        <div *ngIf="showPreview" (click)="removeImage()" class="remove-btn">
+            حذف
+        </div>
+        <app-alert-box *ngIf="inlineAlertTexts && inlineAlertTexts.length>0" [haveHeader]="true"
+            [title]="'امکان بارگذاری فایل وجود ندارد.'" [type]="inlineAlertType.Error" [text]="inlineAlertTexts">
+        </app-alert-box>
+        <!-- add (pic-selected) class after select the pic -->
+        <div class="file-upload pic-selected pointer" [ngClass]="{ 'pic-selected': croppedImage }"
+            (click)="selectImage.click()">
+            <div class="title">
+                <div class="text-select">
+                    <mat-icon class="icon material-icons-two-tone">cloud_upload</mat-icon>
+                    <span>تصویر را انتخاب کنید</span>
+                </div>
+                <app-file-upload-limitation-details [fileType]="fileType.Picture"></app-file-upload-limitation-details>
+            </div>
+            <div *ngIf="croppedImage" class="picture-container">
+                <img disableRightClick [src]="croppedImage" />
+            </div>
+        </div>
+        <image-cropper [imageBase64]="cardSrc" *ngIf="showPreview" [imageChangedEvent]="imageChangedEvent"
+            [aspectRatio]="4 / 4" format="png" (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()"
+            (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()"></image-cropper>
+
+        <div class="button-box-dialog">
+            <div class="btn-jnf btn-text">
+                <button class="button" (click)="close()" mat-button disableRipple="true" color="primary">
+                    <span class="text">انصراف</span>
+                </button>
+            </div>
+            <div class="btn-jnf btn-filled">
+                <button class="button" mat-raised-button disableRipple="true" color="primary" (click)="onSubmit()"
+                    [disabled]="!showPreview">
+                    <span class="text">ثبت</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<input style="display: none" [accept]="allowedExt" type="file" (change)="selectFile($event)" #selectImage />

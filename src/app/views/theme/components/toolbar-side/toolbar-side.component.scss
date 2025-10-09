@@ -1,0 +1,84 @@
+@import 'src/assets/style/base/breakpoints.scss';
+
+app-toolbar-side {
+    .toolbar-side {
+        background: var(--white);
+        width: 100%;
+        height: 104px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: var(--spacing-m);
+        padding: 0 var(--spacing-l) 0 var(--spacing-xxl-5);
+        border-bottom: 8px solid var(--primary-t-5);
+
+        @include lt-desktop {
+            border-bottom: none;
+            height: 56px;
+            background: var(--primary-t-5);
+            padding: 0 var(--spacing-l);
+            gap: var(--spacing-xs);
+        }
+
+        .logo-toggle {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            .toggle {
+                position: relative;
+                width: 24px;
+                height: 24px;
+                display: none;
+                justify-content: center;
+                align-items: center;
+                font-size: 1.3rem;
+                cursor: pointer;
+                // color: var(--primary-t-2);
+                color: var(--white);
+
+                @include lt-desktop {
+                    display: flex;
+                }
+            }
+
+            .logo {
+                display: flex;
+                width: 46px;
+                height: 24px;
+
+                img {
+                    width: 100%;
+                }
+            }
+        }
+
+        .notification {
+            margin-right: auto;
+        }
+
+        .user {}
+    }
+}
+
+.mat-mdc-menu-content {
+    padding: 0 !important;
+
+    .holder-menu-user {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-xs);
+        width: 200px;
+        background-color: var(--gray-1);
+
+        a {
+            padding: var(--spacing-xs);
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 2;
+            text-align: right;
+            cursor: pointer;
+            color: var(--black-rgb-085);
+        }
+    }
+}

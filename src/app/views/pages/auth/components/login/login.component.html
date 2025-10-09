@@ -1,0 +1,61 @@
+<form [formGroup]="loginForm" class="form-crud login-form">
+    <!--userName-->
+    <div class="item-form">
+        <label>نام کاربری</label>
+        <mat-form-field appearance="outline" class="input-text-field"
+            [ngClass]="{'error': f.userName.invalid && f.userName.touched}">
+            <input type="text" placeholder="نام کاربری" matInput formControlName="userName">
+            <!-- error -->
+            <mat-error class="mat-error" *ngIf="f.userName.hasError('required')">
+                پر کردن این فیلد الزامی است
+            </mat-error>
+            <mat-error class="mat-error" *ngIf="f.userName.hasError('minlength')">
+                حداقل کاراکتر 3 رقم می باشد
+            </mat-error>
+        </mat-form-field>
+    </div>
+
+    <!--password-->
+    <div class="item-form">
+        <label>کلمه عبور</label>
+        <mat-form-field appearance="outline" class="input-text-field ltr-field errors-rtl"
+            [ngClass]="{'error': f.password.invalid && f.password.touched}">
+            <input type="password" placeholder="کلمه عبور" autocomplete="new-password" matInput
+                formControlName="password">
+
+            <!-- error -->
+            <mat-error class="mat-error" *ngIf="f.password.hasError('required')">
+                پر کردن این فیلد الزامی است
+            </mat-error>
+            <mat-error class="mat-error" *ngIf="f.password.hasError('minlength')">
+                حداقل کاراکتر 3 رقم می باشد
+            </mat-error>
+            <mat-error class="mat-error" *ngIf="f.password.hasError('maxLength')">
+                حداکثر کاراکتر 100 رقم می باشد
+            </mat-error>
+        </mat-form-field>
+    </div>
+
+    <!-- <a class="forget-pass-link" [routerLink]="'/auth/forget-password'">
+        کلمه عبور خود را فراموش کرده ام.
+    </a> -->
+
+    @if (activeRecaptcha) {
+    <ngx-invisible-recaptcha #captchaElem formControlName="captchaCode" size="normal" [hl]="'en'" theme="light"
+        (reset)="handleReset()" (ready)="handleReady()" (load)="handleLoad()" (error)="handleError()"
+        (success)="handleSuccess($event)" type="image" [siteKey]="siteKey">
+    </ngx-invisible-recaptcha>
+    }
+
+    <div class="buttons-form">
+        <div class="btn-jnf btn-filled">
+            <button class="button" mat-raised-button disableRipple="true" [disabled]="loginForm.invalid"
+                (click)="onExecuteSubmit()" [ngClass]=" {'loading': isSubmitLoading}" ButtonPromise
+                [promiseBtn]="subscriptions" color="primary">
+                <span class="text">
+                    ورود
+                </span>
+            </button>
+        </div>
+    </div>
+</form>

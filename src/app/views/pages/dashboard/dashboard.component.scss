@@ -1,0 +1,24 @@
+app-dashboard {
+    .dashboard-holder {
+        padding-top: var(--spacing-m);
+
+        .container-pv {
+            margin: 0 auto;
+            width: 1061px !important;
+            max-width: 100%;
+
+            .title-section {
+                font-size: 16px;
+                font-weight: 600;
+                line-height: normal;
+                color: var(--gray-6);
+            }
+
+            app-agent-code,
+            app-student-list {
+                display: block;
+                margin-top: var(--spacing-xxl-2);
+            }
+        }
+    }
+}

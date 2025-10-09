@@ -1,0 +1,33 @@
+<div class="carousel-holder">
+    @if(arrowTitle){
+    <div class="arrow-title">
+        @if(titleCarousel){
+        <h3 class="title">
+            {{titleCarousel}}
+        </h3>
+        }
+
+        <div class="arrows">
+            <span class="arrow arrow-right" (click)="scrollWidgetPlus()" [ngClass]="{'active': showArrowRight}">
+                <i class="fa-solid fa-chevron-right"></i>
+            </span>
+            <span class="arrow arrow-left" (click)="scrollWidgetMinus()" [ngClass]="{'active': showArrowLeft}">
+                <i class="fa-solid fa-chevron-left"></i>
+            </span>
+        </div>
+    </div>
+    }
+    @if(!withoutArrow){
+    <span class="arrow arrow-right" (click)="scrollWidgetPlus()" [ngClass]="{'active': showArrowRight}">
+        <i class="fa-regular fa-chevron-right"></i>
+    </span>
+    }
+    <div class="list-carousel list-carousel-wrapper" swiper-scroll="horizontal" (scroll)="onScroll()" #scrollContainer>
+        <ng-content></ng-content>
+    </div>
+    @if(!withoutArrow){
+    <span class="arrow arrow-left" (click)="scrollWidgetMinus()" [ngClass]="{'active': showArrowLeft}">
+        <i class="fa-regular fa-chevron-left"></i>
+    </span>
+    }
+</div>

@@ -1,0 +1,75 @@
+<form [formGroup]="form">
+    <div class="filters-box classes-filter">
+        <!-- maghtaId -->
+        <!-- <mat-form-field appearance="outline" class="input-text-field select-text-field">
+            <mat-select formControlName="maghtaId" placeholder="مقطع">
+                @for (item of maghtaList; track $index) {
+                <mat-option [value]="item.key">{{item.value}}</mat-option>
+                }
+            </mat-select>
+        </mat-form-field> -->
+
+        <!-- payeId -->
+        <!-- <mat-form-field appearance="outline" class="input-text-field select-text-field">
+            <mat-select formControlName="payeId" placeholder="پایه">
+                @for (item of payeList; track $index) {
+                <mat-option [value]="item.key">{{item.value}}</mat-option>
+                }
+            </mat-select>
+            @if(isPayeLoading){
+            <div class="loading-check">
+                <i class="fa-regular fa-spinner fa-spin"></i>
+            </div>
+            }
+        </mat-form-field> -->
+
+        <!-- reshteId -->
+        <!-- <mat-form-field appearance="outline" class="input-text-field select-text-field">
+            <mat-select formControlName="reshteId" placeholder="رشته">
+                @for (item of reshteList; track $index) {
+                <mat-option [value]="item.key">{{item.value}}</mat-option>
+                }
+            </mat-select>
+            @if(isReshteLoading){
+            <div class="loading-check">
+                <i class="fa-regular fa-spinner fa-spin"></i>
+            </div>
+            }
+        </mat-form-field> -->
+
+        <!-- classStatus -->
+        <mat-form-field appearance="outline" class="input-text-field select-text-field">
+            <mat-select formControlName="classStatus" placeholder="وضعیت کلاس">
+                @for (item of classStatusList; track $index) {
+                <mat-option [value]="item.key">{{item.value}}</mat-option>
+                }
+            </mat-select>
+            @if(f.classStatus.value){
+            <div class="clear show" (click)="ResetFilters()">
+                <i class="fa-regular fa-circle-xmark"></i>
+            </div>
+            }
+        </mat-form-field>
+
+
+        <!-- <div class="buttons-filter">
+            <div class="btn-jnf btn-text">
+                <a class="button" (click)="ResetFilters()" [disabled]="loading || form.invalid" appMousePress mat-button
+                    disableRipple="true" color="primary">
+                    <span class="text">
+                        حذف فیلتر
+                    </span>
+                </a>
+            </div>
+            <div class="btn-jnf btn-filled">
+                <a class="button" (click)="loadFilters()" [disabled]="loading || form.invalid" mat-raised-button
+                    disableRipple="true" color="primary">
+                    <span class="text">
+                        جستجو
+                    </span>
+                </a>
+            </div>
+        </div> -->
+
+    </div>
+</form>

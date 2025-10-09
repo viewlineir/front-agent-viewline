@@ -1,0 +1,31 @@
+<div class="notification-toolbar">
+    <div class="btn-icon" (click)="actionToggle()">
+        <mat-icon>notifications_none</mat-icon>
+    </div>
+    <div class="dropdown-notification" [ngClass]="{'show': showNotifList}">
+        <div class="title-card">
+            اطلاعیه ها
+        </div>
+        <div class="list-notification">
+            @for (item of [1,2,3]; track $index) {
+            <a class="item">
+                <h4 class="title">زیست یازدهم...</h4>
+                <p class="description">جلسه 18 ام درس زیست یازدهم برای ر....</p>
+                <div class="type-notif">
+                    تغییر زمان
+                </div>
+            </a>
+            }
+        </div>
+        <div class="show-all">
+            <div class="btn-jnf btn-outline">
+                <a class="button" mat-stroked-button disableRipple="true" color="primary">
+                    <span class="text">مشاهده همه</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    @if(showNotifList){
+    <div class="overlay" (click)="actionToggle()"></div>
+    }
+</div>

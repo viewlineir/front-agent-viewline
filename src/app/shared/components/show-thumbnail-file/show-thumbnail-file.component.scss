@@ -1,0 +1,25 @@
+app-show-thumbnail-file {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .thumbnail-file {
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        border-radius: 5px;
+        position: relative;
+
+        img {
+            width: 100%;
+        }
+
+        i {
+            color: var(--orange-12);
+            display: flex;
+        }
+    }
+}

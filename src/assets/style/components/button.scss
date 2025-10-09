@@ -1,0 +1,276 @@
+@import 'angular2-promise-buttons.scss';
+
+.btn-jnf {
+
+  .button {
+    width: 100%;
+    height: 48px !important;
+    padding: var(--spacing-xs) var(--spacing-s);
+    box-shadow: none !important;
+    border-radius: 8px;
+    outline: 0;
+    overflow: hidden;
+
+    .mdc-button__label {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 2;
+      position: relative;
+
+      .text {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-xs);
+
+        i {
+          font-size: 16px;
+        }
+      }
+    }
+
+    &:hover,
+    &:focus {
+      box-shadow: none !important;
+    }
+
+    &.loading {
+      .text {
+        display: none;
+      }
+
+      &[disabled] {
+        .loader {
+          i {
+            color: var(--primary-t-5) !important;
+          }
+        }
+      }
+    }
+
+  }
+
+  // ===================== outline
+  &.btn-outline {
+    .button {
+      border: 1px solid var(--primary-t-5);
+
+      .mdc-button__ripple {
+        &::before {
+          background-color: var(--primary-tin-7);
+        }
+      }
+
+      .mdc-button__label {
+        // color: var(--gray-8);
+        color: var(--primary-t-5);
+      }
+
+      &.color-primary {
+        .mdc-button__label {
+          color: var(--primary-t-5);
+        }
+      }
+
+      //==============hover==============
+      &:hover {
+        border: 1px solid var(--primary-t-5);
+
+        .mdc-button__ripple {
+          &::before {
+            opacity: 1;
+          }
+        }
+
+        &.color-primary {
+          .mdc-button__label {
+            color: var(--white);
+          }
+        }
+      }
+
+      //==============focus==============
+      &.pressed {
+        border: 1px solid var(--primary-t-5);
+
+        .mdc-button__ripple {
+          &::before {
+            opacity: 1;
+            background-color: var(--primary-tin-7);
+          }
+        }
+
+        .mdc-button__label {
+          body.dark-mode & {
+            color: var(--primary-t-5);
+          }
+        }
+      }
+
+      //==============loading==============
+      &.loading {
+        .mdc-button__ripple {
+          &::before {
+            opacity: 1;
+            background-color: var(--primary-tin-7);
+          }
+        }
+      }
+
+      //==============disabled===============
+      &[disabled] {
+        border-color: var(--gray-2);
+
+        .mdc-button__label {
+          color: var(--gray-3);
+        }
+      }
+    }
+
+    // =======================lesson read========================
+    &.btn-lesson-read {
+      .button {
+        .text {
+          i {
+            font-size: 22px;
+            color: var(--primary-t-5);
+          }
+        }
+
+        &[disabled] {
+          .text {
+            i {
+              color: var(--success);
+            }
+          }
+        }
+      }
+    }
+
+  }
+
+  // ===================== filled
+  &.btn-filled {
+    .button {
+
+      .mdc-button__ripple {
+        display: none;
+      }
+
+      .mdc-button__label {
+        color: var(--white);
+      }
+
+      //==============loading==============
+      &.loading {
+        .loader {
+          i {
+            color: var(--white);
+          }
+        }
+      }
+
+      //==============focus===============
+      &:focus {
+        box-shadow: none;
+      }
+
+      //==============disabled===============
+      &[disabled] {
+        .mdc-button__label {
+          color: var(--gray-3);
+        }
+      }
+    }
+
+    &.btn-gray {
+      .button {
+        border: solid 1px var(--gray-7);
+        background-color: var(--white);
+
+        .mdc-button__label {
+          color: var(--gray-6);
+
+          i {
+            color: var(--gray-3);
+          }
+        }
+      }
+    }
+
+    &.btn-back {
+      .button {
+        border: solid 1px var(--gray-3);
+        background-color: var(--gray-7);
+
+        .mdc-button__label {
+          color: var(--gray-6);
+
+          i {
+            color: var(--gray-6);
+          }
+        }
+      }
+    }
+
+  }
+
+  // ===================== text
+  &.btn-text {
+    .button {
+      padding: 10px 12px;
+
+      .mdc-button__ripple {
+        &::before {
+          background-color: var(--primary-tin-9);
+        }
+      }
+
+      .mdc-button__label {
+        color: var(--primary-t-5);
+      }
+
+      //==============hover==============
+      &:hover {
+        .mdc-button__ripple {
+          &::before {
+            opacity: 1;
+          }
+        }
+      }
+
+      //==============focus===============
+      &.pressed {
+        .mdc-button__ripple {
+          &::before {
+            opacity: 1;
+            background-color: var(--primary-tin-9);
+          }
+        }
+      }
+
+      //==============loading==============
+      &.loading {
+        .mdc-button__ripple {
+          &::before {
+            opacity: 1;
+            background-color: var(--primary-tin-9);
+          }
+        }
+      }
+
+      //==============disabled===============
+      &[disabled] {
+        .mdc-button__label {
+          color: var(--gray-3);
+        }
+      }
+    }
+
+    &.btn-text-secondary {
+      .mdc-button__label {
+        color: var(--primary-t-5);
+      }
+    }
+
+  }
+}

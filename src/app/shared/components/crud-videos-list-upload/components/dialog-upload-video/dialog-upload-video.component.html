@@ -1,0 +1,64 @@
+<div class="custom-dialog-container dialog-upload-video">
+    <div class="header-dialog has-title">
+        <h2 class="title">انتخاب ویدئو</h2>
+        <span class="close-dialog" (click)="close()">
+            <i class="fa-regular fa-xmark"></i>
+        </span>
+    </div>
+
+    <div class="content-dialog">
+        <div class="file-upload pic-selected pointer">
+            <div class="title">
+                @if(!imageSrc){
+                <div class="text-select" (click)="selectImage.click()">
+                    <mat-icon class="icon material-icons-two-tone">cloud_upload</mat-icon>
+                    <span>تصویر را انتخاب کنید</span>
+                </div>
+                } @else {
+                <div class="preview-img">
+                    <span (click)="selectImage.click()">تغییر تصویر</span>
+                    <img [src]="imageSrc" alt="Image preview" />
+                </div>
+                }
+                <app-file-upload-limitation-details [fileType]="fileType.Picture"></app-file-upload-limitation-details>
+            </div>
+        </div>
+        <div class="file-upload video-selected pointer">
+            <div class="title">
+                @if(!videoSrc){
+                <div class="text-select" (click)="selectVideo.click()">
+                    <mat-icon class="icon material-icons-two-tone">cloud_upload</mat-icon>
+                    <span>ویدئو را انتخاب کنید</span>
+                </div>
+                } @else {
+                <div class="preview-video">
+                    <span (click)="selectVideo.click()">تغییر ویدئو</span>
+                    <video [src]="videoSrc" controls nodownload></video>
+                </div>
+                }
+                <app-file-upload-limitation-details [fileType]="fileType.Video"></app-file-upload-limitation-details>
+            </div>
+        </div>
+
+
+
+        <div class="button-box-dialog">
+            <div class="btn-jnf btn-text">
+                <button class="button" (click)="close()" mat-button disableRipple="true" color="primary">
+                    <span class="text">انصراف</span>
+                </button>
+            </div>
+            <div class="btn-jnf btn-filled">
+                <button class="button" [disabled]="!videoSrc && !imageSrc" (click)="onSubmit()" mat-raised-button disableRipple="true" color="primary">
+                    <span class="text">ثبت</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<input type="file" (change)="onImageChange($event)" accept="image/jpg, image/png, image/jpeg" style="display: none;"
+    #selectImage />
+
+<input type="file" (change)="onVideoChange($event)" accept="video/mp4" style="display: none;"
+    #selectVideo />

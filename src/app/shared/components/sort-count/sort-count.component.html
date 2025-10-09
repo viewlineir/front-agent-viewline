@@ -1,0 +1,19 @@
+<div class="sort-count">
+    @if(text){
+    <div class="count-title">
+        {{text}}
+    </div>
+    }
+    @if(!hideSort){
+    <mat-form-field class="input-text-field select-text-field-toolbar" appearance="outline">
+        <mat-select [formControl]="sort" (valueChange)="getValueSort($event)">
+            <mat-option [value]="1">جدیدترین</mat-option>
+            <mat-option [value]="2">محبوب ترین ها</mat-option>
+            <mat-option [value]="3">پربازدیدترین ها</mat-option>
+        </mat-select>
+        <span class="icon">
+            <mat-icon matSuffix>sort</mat-icon>
+        </span>
+    </mat-form-field>
+    }
+</div>

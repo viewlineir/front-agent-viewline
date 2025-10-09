@@ -1,0 +1,85 @@
+<form [formGroup]="form">
+    <div class="filters-box classes-filter">
+        <!-- identifierName -->
+        <mat-form-field appearance="outline" class="input-text-field select-text-field bg-white">
+            <mat-select formControlName="identifierName" placeholder="نام نماینده معرف">
+                <!-- @for (item of paymentStatusList; track $index) {
+                <mat-option [value]="item.key">{{item.value}}</mat-option>
+                } -->
+            </mat-select>
+            <!-- @if(f.identifierName.value){
+            <div class="clear show" (click)="resetField('identifierName')">
+                <i class="fa-regular fa-circle-xmark"></i>
+            </div>
+            } -->
+        </mat-form-field>
+
+        <!-- orderStatus -->
+        <mat-form-field appearance="outline" class="input-text-field select-text-field bg-white">
+            <mat-select formControlName="orderStatus" placeholder="نوع پرداخت">
+                @for (item of orderStatusList; track $index) {
+                <mat-option [value]="item.key">{{item.value}}</mat-option>
+                }
+            </mat-select>
+            @if(f.orderStatus.value){
+            <div class="clear show" (click)="resetField('orderStatus')">
+                <i class="fa-regular fa-circle-xmark"></i>
+            </div>
+            }
+        </mat-form-field>
+
+        <!-- discountId -->
+        <mat-form-field appearance="outline" class="input-text-field select-text-field bg-white">
+            <mat-select formControlName="discountId" placeholder="به تفکیک کد">
+                @if(!loadingDiscount){
+                    @for (item of discountData?.records; track $index) {
+                    <mat-option [value]="item.discountId">{{item.discountCode}}</mat-option>
+                    }
+                }
+            </mat-select>
+            @if(loadingDiscount){
+            <div class="loading-check">
+                <i class="fa-regular fa-spinner fa-spin"></i>
+            </div>
+            }
+            @if(f.discountId.value){
+            <div class="clear show" (click)="resetField('discountId')">
+                <i class="fa-regular fa-circle-xmark"></i>
+            </div>
+            }
+        </mat-form-field>
+
+
+        <div class="row row-date-title">
+            <div class="item-date">
+                <label>از تاریخ</label>
+                <!-- orderCreatedDate_From -->
+                <mat-form-field class="input-text-field" (click)="picker1.open()" appearance="outline">
+                    <input matInput placeholder="از" readonly="true" [matDatepicker]="picker1"
+                        formControlName="orderCreatedDate_From">
+                    <mat-datepicker #picker1></mat-datepicker>
+                    @if(f.orderCreatedDate_From.value){
+                    <div class="clear show" (click)="resetField('orderCreatedDate_From')">
+                        <i class="fa-regular fa-circle-xmark"></i>
+                    </div>
+                    }
+                </mat-form-field>
+            </div>
+            <div class="item-date">
+                <label>تا تاریخ</label>
+                <!-- orderCreatedDate_To -->
+                <mat-form-field class="input-text-field" (click)="picker2.open()" appearance="outline">
+                    <input matInput placeholder="تا" readonly="true" [matDatepicker]="picker2"
+                        formControlName="orderCreatedDate_To">
+                    <mat-datepicker #picker2></mat-datepicker>
+
+                    @if(f.orderCreatedDate_To.value){
+                    <div class="clear show" (click)="resetField('orderCreatedDate_To')">
+                        <i class="fa-regular fa-circle-xmark"></i>
+                    </div>
+                    }
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+</form>

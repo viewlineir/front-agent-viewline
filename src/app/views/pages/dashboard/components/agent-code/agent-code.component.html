@@ -1,0 +1,38 @@
+<div class="agent-code">
+    <div class="code-copy">
+        <div class="code-data">
+            <span class="title">آخرین کد نمایندگی شما :</span>
+            <span class="value">{{lastAgentCode}}</span>
+        </div>
+        <div class="copy-share">
+            <div class="btn-jnf btn-copy btn-filled">
+                <button class="button" (click)="copyCode()" mat-raised-button disableRipple="true" color="primary">
+                    <span class="text">
+                        کپی کد
+                    </span>
+                </button>
+            </div>
+            <div class="btn-jnf btn-share btn-outline">
+                <button class="button" mat-stroked-button disableRipple="true" color="primary">
+                    <span class="text">
+                        اشتراک گذاری
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="codes-list-button">
+        <div class="btn-jnf btn-outline">
+            <button class="button" mat-stroked-button disableRipple="true" color="primary">
+                <span class="text">
+                    لیست کدهای شما
+                </span>
+            </button>
+        </div>
+        <div class="btn-jnf btn-text">
+            <button class="button" mat-button disableRipple="true" color="primary">
+                <span class="text">لیست کد زیرمجموعه ها</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="countdown-holder">
+    <ng-container *ngIf="loading===false else showLoading">
+        <div class="timer" *ngIf="!timeFinished">
+            <ng-container *ngIf="minute > 0">
+                {{minute}} دقیقه
+            </ng-container>
+            <ng-container *ngIf="minute > 0 && seconds > 0">
+                و
+            </ng-container>
+            <ng-container *ngIf="seconds > 0">
+                {{seconds}} ثانیه
+            </ng-container>
+            <ng-container *ngIf="minute > 0 || seconds > 0">
+                تا ارسال مجدد کد تایید
+            </ng-container>
+        </div>
+        <a class="resend-code" (click)="sendRequestForResendCode()" *ngIf="timeFinished">ارسال مجدد کد تایید</a>
+    </ng-container>
+    <ng-template #showLoading>
+        <span class="loader">
+            <i class="fa-regular fa-spinner fa-spin"></i>
+        </span>
+    </ng-template>
+    
+</div>

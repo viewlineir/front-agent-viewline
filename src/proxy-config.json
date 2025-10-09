@@ -1,0 +1,9 @@
+{
+    "/api/*": {
+     
+        "target": "https://api-web.andishe151.ir/",
+        "secure": true,
+        "changeOrigin": true,
+        "logLevel": "debug"
+    }
+}

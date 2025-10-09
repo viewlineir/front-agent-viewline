@@ -1,0 +1,68 @@
+@import 'src/assets/style/components/dialog.scss';
+
+app-upload-thumbnail {
+  .select-thumbnail {
+
+    .content-dialog {
+      padding: 1rem;
+
+      .dialog-description {
+        color: var(--black-rgb-05);
+        display: block;
+      }
+
+      .remove-btn {
+        margin-right: auto;
+        color: var(--orange-6);
+        font-size: 14px;
+        font-weight: bold;
+        padding: 5px 10px;
+        cursor: pointer;
+        width: fit-content;
+        min-width: 60px;
+        text-align: center;
+      }
+
+      .file-upload {
+        flex-direction: column;
+        display: flex;
+        place-content: center;
+        align-items: center;
+        width: 100%;
+        border: 1px dashed var(--black-rgb-05);
+        background-color: var(--white-rgb-09);
+        border-radius: 5px;
+        height: 160px;
+        cursor: pointer;
+
+        .text-select {
+          place-content: center;
+          align-items: center;
+          flex-direction: row;
+          box-sizing: border-box;
+          display: flex;
+          color: var(--black-rgb-05);
+          gap: 5px;
+
+          .icon {
+            color: var(--black-rgb-05);
+          }
+        }
+
+        &.pic-selected {
+          .title {
+            display: none;
+          }
+
+          .picture-container {
+            img {
+              width: 139px;
+              height: 139px;
+              border: 1px solid;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,126 @@
+@import 'src/assets/style/base/breakpoints.scss';
+
+app-carousel {
+    .carousel-holder {
+        position: relative;
+
+        .arrow {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 100%;
+            border: 1px solid var(--primary-t-8);
+            background-color: var(--white);
+            z-index: 3;
+            cursor: pointer;
+
+            &.arrow-right {
+                right: 8px;
+                padding-left: 5px;
+            }
+
+            &.arrow-left {
+                left: 8px;
+            }
+
+            &.active {
+                display: flex;
+
+                @include lt-desktop {
+                    display: none;
+                }
+            }
+
+            i {
+                pointer-events: none;
+                font-size: 16px;
+                line-height: 1.5;
+                color: var(--primary-t-2);
+            }
+
+            &:hover {
+                background: var(--primary-t-8);
+            }
+        }
+
+        .arrow-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--spacing-xs);
+            margin-bottom: var(--spacing-s);
+
+            .title {
+                font-size: 16px;
+                font-weight: 600;
+                line-height: normal;
+                color: var(--gray-6);
+            }
+
+            .arrows {
+                display: flex;
+                align-items: center;
+                gap: var(--spacing-xs);
+                margin-right: auto;
+
+                .arrow {
+                    position: static;
+                    display: flex;
+                    pointer-events: none;
+
+                    &.active {
+                        cursor: pointer;
+                        pointer-events: all;
+
+                        @include lt-desktop {
+                            display: flex;
+                        }
+                    }
+                }
+            }
+        }
+
+        .list-carousel {
+            grid-auto-flow: column;
+            display: grid;
+            grid-template-columns: 296px;
+            grid-auto-columns: 296px;
+            grid-gap: var(--spacing-m);
+            overflow-x: auto;
+            /* Hide scrollbar for IE, Edge and Firefox */
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+
+            /* Hide scrollbar for Chrome, Safari and Opera */
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            @include lt-wide-desktop {
+                grid-gap: var(--spacing-xs);
+            }
+
+            @include tablet {
+                padding: 0 var(--spacing-m);
+            }
+
+            @include mobile {
+                grid-template-columns: 257px;
+                grid-auto-columns: 257px;
+                padding: 0 var(--spacing-s);
+            }
+
+            .item-carousel {
+                width: 100%;
+            }
+        }
+    }
+}

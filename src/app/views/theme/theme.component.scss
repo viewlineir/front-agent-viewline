@@ -1,0 +1,77 @@
+@import '../../.../../../assets/style/base/breakpoints.scss';
+
+app-theme {
+    .side {
+        position: fixed;
+        width: 266px;
+        height: 100%;
+        background: var(--white);
+        transition: 0.5s;
+        overflow: hidden;
+        box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.14);
+        border-left: solid 1px #10a192;
+
+        @include lt-desktop {
+            right: -266px;
+            z-index: 15;
+        }
+
+        &.active {
+            // width: 80px;
+            width: 266px;
+
+            @include lt-desktop {
+                right: 0px;
+                width: 266px;
+            }
+        }
+    }
+
+    .main {
+        position: absolute;
+        width: calc(100% - 266px);
+        right: 266px;
+        min-height: 100vh;
+        // background: var(--white);
+        transition: 0.5s;
+
+        @include lt-desktop {
+            width: 100%;
+            right: 0;
+        }
+
+        &.active {
+            width: calc(100% - 80px);
+            right: 80px;
+
+            @include lt-desktop {
+                right: 0;
+                width: 100%;
+            }
+        }
+
+        .toolbar {
+            width: 100%;
+            position: sticky;
+            z-index: 10;
+            top: 0;
+        }
+
+        .content-main {
+            width: 100%;
+            height: calc(100% - 90px);
+            overflow-y: auto;
+            padding: var(--spacing-xs) var(--spacing-m);
+
+            @include mobile {
+                padding: var(--spacing-xs) var(--spacing-l);
+            }
+
+            .container-pv {
+                width: 100%;
+            }
+        }
+    }
+
+
+}

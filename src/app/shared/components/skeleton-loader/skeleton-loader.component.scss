@@ -1,0 +1,81 @@
+app-skeleton-loader {
+    display: block;
+    width: 100%;
+    margin-bottom: var(--spacing-s);
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    .item-skeleton {
+        border-radius: 8px;
+        width: 100%;
+        background: var(--gray-9) no-repeat;
+        animation: pulse 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        animation-delay: 0.5s;
+
+        &.circle {
+            width: 50px;
+            height: 50px;
+        }
+
+        &.link {
+            height: 15px;
+        }
+
+        &.card {
+            height: 200px;
+        }
+    }
+}
+
+.skeleton-card {
+    border-radius: 12px;
+    border: 1px solid var(--gray-7);
+    background: var(--gray-2);
+    padding: var(--spacing-xs) var(--spacing-xs) var(--spacing-m);
+    display: block;
+    position: relative;
+}
+
+.skeleton-side-card {
+    padding: var(--spacing-xs) var(--spacing-xs) var(--spacing-xs) var(--spacing-s);
+    border-radius: 12px;
+    box-shadow: 0 4px 8px 0 var(--black-rgb-02);
+    background: var(--gray-2);
+    min-height: 108px;
+    width: 100%;
+    display: flex !important;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--spacing-xs);
+
+    .card-side {
+        width: 86px;
+        height: 54px;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-bottom: 0;
+    }
+
+    .left-card {
+        width: calc(100% - 94px);
+
+        .link-side {}
+    }
+
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

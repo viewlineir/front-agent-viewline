@@ -1,0 +1,23 @@
+<div class="pagination-box" *ngIf="hidePaginate">
+    <ul>
+        <li class="arrow arrow-right" (click)="selectPage(currentPage - 1)" *ngIf="currentPage > 1">
+            <mat-icon>keyboard_arrow_right</mat-icon>
+            قبلی
+        </li>
+        <li (click)="selectPage(startPage)" [ngClass]="{'active':currentPage === startPage}">
+            {{startPage}}
+        </li>
+        <li *ngIf="currentPage > 4 && paginationList.length > 4">...</li>
+        <li *ngFor="let page of paginationList | slice:rangePageInsideDown:rangePageInsideUp"
+            [ngClass]="{'active':currentPage === page}" (click)="selectPage(page)">{{page}}</li>
+        <li *ngIf="currentPage <= 3 && paginationList.length > 4">...</li>
+        <li *ngIf="currentPage > 3 && (currentPage < endPage - 2) && paginationList.length > 4">...</li>
+        <li (click)="selectPage(endPage)" [ngClass]="{'active':currentPage === endPage}">
+            {{endPage}}
+        </li>
+        <li class="arrow arrow-left" (click)="selectPage(currentPage + 1)" *ngIf="currentPage < endPage">
+            بعدی
+            <mat-icon>keyboard_arrow_left</mat-icon>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,36 @@
+@import 'src/assets/style/components/dialog.scss';
+
+app-dialog-student-class {
+    .dialog-student-class {
+
+        .header-dialog {
+            border-bottom: 1px solid var(--gray-7);
+            padding-bottom: var(--spacing-s);
+
+            .title {
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 2;
+                color: var(--orange-12);
+            }
+        }
+
+        .content-dialog {
+            padding: 1rem 0;
+
+            .list-students {
+                display: block;
+                width: 100%;
+
+                .holder-buttons-list {
+                    justify-content: flex-end;
+                }
+
+                .holder-data {
+                    padding-bottom: 0;
+                }
+            }
+        }
+    }
+
+}

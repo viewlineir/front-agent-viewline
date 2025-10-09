@@ -1,0 +1,38 @@
+<div class="card-count-holder">
+    <div class="item-card">
+        <div class="title-count">
+            <h4>درآمد کل</h4>
+            <div class="count">
+                <span>{{dataDashboard.totalRevenue | number}}</span>
+                میلیون
+            </div>
+        </div>
+        <div class="icon">
+            <mat-icon [svgIcon]="'doller'"></mat-icon>
+        </div>
+    </div>
+    <div class="item-card">
+        <div class="title-count">
+            <h4>تعداد دانش آموز</h4>
+            <div class="count">
+                <span>{{dataDashboard.studentCount | number}}</span>
+                نفر
+            </div>
+        </div>
+        <div class="icon">
+            <mat-icon [svgIcon]="'people_alt'"></mat-icon>
+        </div>
+    </div>
+    <div class="item-card">
+        <div class="title-count">
+            <h4>تسویه شده</h4>
+            <div class="count">
+                <span>{{dataDashboard.totalRevenuePaid | number}}</span>
+                میلیون
+            </div>
+        </div>
+        <div class="icon">
+            <mat-icon [svgIcon]="'laptop'"></mat-icon>
+        </div>
+    </div>
+</div>

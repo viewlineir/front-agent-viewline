@@ -1,0 +1,105 @@
+.filters-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-m);
+    margin-bottom: var(--spacing-xl);
+
+    .input-text-field {
+        width: 23.45%;
+    }
+
+    .row {
+        width: 100%;
+
+        &.d-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 72px;
+
+            &.gap-109 {
+                gap: 109px;
+            }
+        }
+
+        &.row-date-title {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+
+            .item-date {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: 10px;
+
+                .input-text-field {
+                    width: 200px;
+                }
+            }
+        }
+    }
+
+    .item-filter-radio {
+        display: flex;
+        align-items: center;
+        gap: 0;
+        flex-wrap: wrap;
+
+        label {
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 2;
+            text-align: right;
+            color: var(--gray-6);
+        }
+
+        .field-radio-group {
+            gap: 5px;
+
+            .mdc-label {
+                font-size: 12px;
+                font-weight: 500;
+                line-height: normal;
+                text-align: right;
+                color: var(--gray-6);
+            }
+        }
+    }
+
+    .item-group-form {
+        width: 100%;
+        display: flex;
+        gap: var(--spacing-m);
+        flex-wrap: wrap;
+    }
+
+    .item-filter-checkbox {
+        display: flex;
+        align-items: center;
+        gap: 0;
+        flex-wrap: wrap;
+
+        label {
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 2;
+            text-align: right;
+            color: var(--gray-6);
+        }
+    }
+
+    .buttons-filter {
+        width: 100%;
+        display: flex;
+        gap: var(--spacing-s);
+
+        .btn-jnf {
+            width: 120px;
+
+            .button {
+                height: 40px !important;
+            }
+        }
+    }
+}

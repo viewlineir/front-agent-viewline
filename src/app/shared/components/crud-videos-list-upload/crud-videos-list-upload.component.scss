@@ -1,0 +1,133 @@
+app-crud-videos-list-upload {
+    .crud-videos-list-upload {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-m);
+        flex-wrap: wrap;
+
+        .item-video {
+            width: 296px;
+            height: 203px;
+            overflow: hidden;
+            border-radius: 9px;
+            border: solid 1px var(--primary-t-4);
+            background-color: var(--black-rgb-02);
+            position: relative;
+
+            .video {
+                width: 100%;
+            }
+
+            .icon-play {
+                position: absolute;
+                width: 70px;
+                height: 70px;
+                border-radius: 56px;
+                cursor: pointer;
+                align-items: center;
+                justify-content: center;
+                background-color: var(--white-rgb-02);
+                color: var(--primary-t-1);
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin: auto;
+                display: none;
+
+                &::before {
+                    content: '';
+                    display: block;
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 56px;
+                    background-color: var(--white);
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    margin: auto;
+                }
+
+                .mat-icon {
+                    z-index: 1;
+                    position: relative;
+
+                    &.play {
+                        display: none;
+                    }
+
+                    &.pause {
+                        display: block;
+                    }
+                }
+            }
+
+            .icon-delete {
+                position: absolute;
+                left: 8px;
+                bottom: 8px;
+                color: var(--white);
+                cursor: pointer;
+            }
+
+            &:hover {
+                .icon-play {
+                    display: flex;
+                }
+            }
+
+            &.paused {
+                .icon-play {
+                    display: flex;
+
+                    .mat-icon {
+                        &.play {
+                            display: block;
+                        }
+
+                        &.pause {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+
+        .button-upload {
+            cursor: pointer;
+            width: 106px;
+            height: 141px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            border-radius: 8px;
+            border: 1px dashed var(--gray-3);
+            background-color: var(--white);
+
+            .mat-icon {
+                color: var(--primary-t-5);
+            }
+
+            p {
+                font-size: 14px;
+                font-weight: 600;
+                line-height: normal;
+                text-align: center;
+                color: var(--gray-6);
+            }
+        }
+
+        .alert-video-size {
+            width: 100%;
+            margin-bottom: var(--spacing-xl);
+            font-size: 14px;
+            font-weight: 500;
+            line-height: normal;
+            color: var(--gray-6);
+        }
+    }
+}

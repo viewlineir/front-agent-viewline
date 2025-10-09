@@ -1,0 +1,27 @@
+<div class="toolbar-side">
+    <div class="logo-toggle">
+        <div class="toggle" (click)="actionNavigation()">
+            <i class="fa-regular fa-bars"></i>
+        </div>
+        <a [routerLink]="'/'" class="logo">
+            <!-- <img src="./assets/images/logo.png" alt="" /> -->
+            <img src="./assets/images/logo-white.svg" alt="" />
+        </a>
+    </div>
+
+    @if (titleText) {
+    <div class="title-page-toolbar">
+        <app-toolbar-title [title]="titleText" />
+    </div>
+    }
+
+    <div class="notification">
+        <app-notification-toolbar />
+    </div>
+
+    @if(userInfo){
+    <div class="user">
+        <app-user-toolbar />
+    </div>
+    }
+</div>

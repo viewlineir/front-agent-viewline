@@ -1,0 +1,194 @@
+@import 'src/assets/style/base/breakpoints.scss';
+
+app-user-toolbar {
+    .user-toolbar {
+        position: relative;
+
+        .img-arrow {
+            width: 68px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            height: 40px;
+
+            @include lt-desktop {
+                width: 56px;
+                height: 24px;
+                gap: var(--spacing-xs);
+                padding-right: var(--spacing-xs);
+            }
+
+            picture {
+                display: flex;
+            }
+
+            img {
+                width: 20px;
+
+                @include lt-desktop {
+                    width: 16px;
+                }
+            }
+
+            .icon {
+                width: 24px;
+                height: 24px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--primary-t-2);
+
+                @include lt-desktop {
+                    color: var(--white);
+                }
+            }
+
+        }
+
+        .dropdown-user {
+            position: absolute;
+            display: none;
+            z-index: 3;
+            top: 76px;
+            left: 0;
+            width: 300px;
+            max-height: 320px;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 4px 8px 0 var(--black-rgb-025);
+            background: var(--white);
+
+            @include lt-desktop {
+                top: 40px;
+            }
+
+            &.show {
+                display: block;
+                animation: transformAnimate 0.6s;
+                -o-animation: transformAnimate 0.6s;
+                -webkit-animation: transformAnimate 0.6s;
+            }
+
+            .user-info {
+                padding: var(--spacing-s);
+                display: flex;
+                align-items: center;
+                gap: var(--spacing-s);
+
+                .img {
+                    width: 64px;
+                    height: 64px;
+                    display: flex;
+                    overflow: hidden;
+                    border-radius: 100%;
+                    background-color: var(--gray-1);
+
+                    img {
+                        width: 100%;
+                    }
+                }
+
+                span {
+                    font-size: 16px;
+                    font-weight: 600;
+                    line-height: normal;
+                    text-align: right;
+                    color: var(--primary-t-5);
+                }
+            }
+
+            .list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+
+                li {
+                    padding: 0 var(--spacing-s);
+                    border-top: solid 1px var(--gray-7);
+
+                    a {
+                        height: 56px;
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: center;
+                        gap: var(--spacing-xs);
+                        cursor: pointer;
+
+                        .mat-icon {
+                            font-size: 16px;
+                            width: 24px;
+                            height: 24px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            color: var(--primary-t-7);
+                        }
+
+                        span {
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            gap: var(--spacing-xs);
+                            width: calc(100% - 32px);
+                            font-size: 16px;
+                            font-weight: 500;
+                            line-height: 2;
+                            color: var(--gray-8);
+
+                            .count {
+                                width: 24px;
+                                height: 24px;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                border-radius: 16px;
+                                background-color: var(--orange-13);
+                                font-size: 14px;
+                                font-weight: 500;
+                                line-height: normal;
+                                color: var(--white);
+                                font-style: normal;
+                            }
+
+                            .mat-icon {
+                                color: var(--primary-t-1);
+                            }
+                        }
+
+                        &:hover {
+                            span {
+                                color: var(--primary-t-5);
+
+                                .mat-icon {
+                                    color: var(--primary-t-5);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            z-index: 2;
+            height: 100vh;
+        }
+    }
+}
+
+
+@keyframes transformAnimate {
+    0% {
+        transform: translateY(-10%);
+    }
+
+    100% {
+        transform: translateY(0%)
+    }
+}

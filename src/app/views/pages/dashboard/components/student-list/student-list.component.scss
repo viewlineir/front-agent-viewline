@@ -1,0 +1,103 @@
+app-student-list {
+    .student-list {
+        .data-all-report {
+            display: flex;
+            flex-direction: column;
+            margin-top: var(--spacing-s);
+
+            .row {
+                display: flex;
+                align-items: flex-start;
+                align-content: flex-start;
+                align-self: stretch;
+                flex-wrap: wrap;
+                gap: 32px;
+
+                .title-value {
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+                    min-width: 220px;
+                    max-width: 100%;
+                    padding: 10px 0;
+
+                    .title {
+                        font-weight: 500;
+                        font-size: 14px;
+                        line-height: 16px;
+                        color: var(--gray-6);
+                        display: flex;
+                        align-items: center;
+                        gap: 4px;
+
+                        &.gray {
+                            color: var(--gray-4);
+                        }
+                    }
+
+                    .value {
+                        font-weight: 500;
+                        font-size: 12px;
+                        line-height: 16px;
+                        color: var(--gray-4);
+
+                        span {
+                            font-weight: bold;
+                            font-size: 16px;
+                            line-height: 32px;
+                            color: var(--gray-6);
+
+                            &.orange {
+                                color: var(--orange-12);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .filter {
+            display: block;
+            margin-top: var(--spacing-xs);
+
+            .filters-box {
+                margin-bottom: 0 !important;
+            }
+        }
+
+        .total-count {
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 16px;
+            color: var(--gray-3);
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            padding: 8px 0;
+        }
+
+        .holder-data {
+            padding: 0;
+
+            .data-table {
+                .table-custom {
+                    border-radius: 8px 8px 0 0;
+
+                    .time-day {
+                        max-width: 168px;
+                        text-wrap: wrap;
+                        margin: 0 auto;
+                    }
+
+                    td {
+                        border-left: none !important;
+                    }
+                }
+            }
+
+            .pagination-box {
+                padding: 0 var(--spacing-l) !important;
+            }
+        }
+    }
+}

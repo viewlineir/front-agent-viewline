@@ -1,0 +1,29 @@
+app-file-upload-limitation-details {
+  .file-upload-limitaion {
+    display: flex;
+    flex-direction: column;
+    margin-top: 17px;
+
+    .item {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+
+      .dot {
+        width: 5px;
+        height: 5px;
+        background-color: var(--black-rgb-05);
+        border-radius: 100%;
+        display: inline-block;
+        margin: 0 5px;
+      }
+
+      .text {
+        color: var(--black-rgb-05);
+        font-size: 14px;
+        font-weight: 500;
+      }
+    }
+  }
+}

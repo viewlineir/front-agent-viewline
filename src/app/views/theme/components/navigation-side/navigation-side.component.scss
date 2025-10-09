@@ -1,0 +1,176 @@
+@import 'src/assets/style/base/breakpoints.scss';
+
+app-navigation-side {
+    .navigation-side {
+        width: 100%;
+        height: 100%;
+
+        .logo-side {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            height: 104px;
+            border-bottom: 8px solid var(--primary-t-5);
+            padding: 14px var(--spacing-s) 14px;
+            margin: 0 0 var(--spacing-l);
+            cursor: pointer;
+            position: relative;
+
+            a {
+                display: flex;
+
+                &.hide {
+                    @include gt-tablet {
+                        display: none;
+                    }
+                }
+
+                img {
+                    max-width: 100%;
+                    height: 68px;
+                }
+            }
+
+
+            .toggle {
+                position: relative;
+                width: 60px;
+                height: 60px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 1.5rem;
+                cursor: pointer;
+                color: var(--primary-t-2);
+            }
+
+        }
+
+        .side-menu-list {
+            // height: calc(100vh - 170px);
+            height: calc(100vh - 115px);
+            overflow: hidden;
+            overflow-y: auto;
+            width: 100%;
+            padding: 0;
+            padding-right: var(--spacing-s);
+            margin: 0;
+            direction: ltr;
+
+            .side-menu-item {
+                padding: var(--spacing-m) 0 var(--spacing-s);
+                border-bottom: solid 1px var(--primary-t-7);
+
+                &:nth-child(2n) {
+                    padding-top: 0;
+                }
+
+                &:last-child {
+                    padding: var(--spacing-s) 0;
+                    border-bottom: none;
+                }
+
+                &:first-child {
+                    padding-top: 0;
+                }
+            }
+
+            li {
+                direction: rtl;
+                position: relative;
+                width: 100%;
+                list-style: none;
+
+                a {
+                    position: relative;
+                    display: block;
+                    width: 100%;
+                    display: flex;
+                    cursor: pointer;
+                    text-decoration: none;
+                    color: var(--primary-7);
+                    align-items: center;
+                    padding-left: 10px;
+                    border-top-right-radius: 30px;
+                    border-bottom-right-radius: 30px;
+                    padding-right: 24px;
+
+                    .icon {
+                        position: relative;
+                        display: block;
+                        min-width: 24px;
+                        height: 24px;
+                        text-align: center;
+                        font-size: 1.2rem;
+                        color: var(--primary-t-2-rgb-05);
+                    }
+
+                    .title {
+                        position: relative;
+                        display: flex;
+                        padding: 0 var(--spacing-xs);
+                        height: 56px;
+                        align-items: center;
+                        text-align: start;
+                        white-space: nowrap;
+                        font-size: 16px;
+                        font-weight: 500;
+                        line-height: 2;
+                    }
+
+                    .ico-arrow {
+                        margin-right: auto;
+                        position: relative;
+                        z-index: 1;
+                        font-size: 12px;
+                    }
+
+                    &:hover {
+                        .title {
+                            color: var(--orange-2);
+                        }
+                    }
+                    
+                    &.active {
+                        background-color: var(--primary-tin-1);
+                        color: var(--white);
+
+                        .icon {
+                            color: var(--white);
+                        }
+                    }
+                }
+
+                .navigation-list-child {
+                    max-height: 0;
+                    overflow: hidden;
+                    transition: 0.3s all;
+
+                    &.show {
+                        max-height: 100vh;
+                    }
+                }
+            }
+
+            &.minimize {
+                @include gt-tablet {
+                    padding-right: 0;
+                }
+
+                li {
+                    a {
+                        .title {
+                            visibility: hidden;
+
+                            @include lt-desktop {
+                                visibility: visible;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

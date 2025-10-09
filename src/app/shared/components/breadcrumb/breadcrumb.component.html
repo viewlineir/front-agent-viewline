@@ -1,0 +1,21 @@
+<div class="section-breadcrumb">
+    <div class="breadcrumb-list">
+        <a class="breadcrumb-item home-link has-link" [routerLink]="'/'">
+            میز کار
+        </a>
+        <ng-container *ngFor="let item of breadCrumbList">
+            <a class="breadcrumb-item has-link" *ngIf="item.url !== ''" [routerLink]="item.url">{{item.title}}</a>
+            <span class="breadcrumb-item" *ngIf="item.url === ''">{{item.title}}</span>
+        </ng-container>
+    </div>
+    @if(backUrl){
+    <div class="btn-jnf btn-filled btn-back">
+        <a class="button" mat-raised-button disableRipple="true" color="primary" [routerLink]="backUrl">
+            <span class="text">
+                بازگشت
+                <i class="fa-regular fa-chevron-left"></i>
+            </span>
+        </a>
+    </div>
+    }
+</div>

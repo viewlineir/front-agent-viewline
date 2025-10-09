@@ -1,0 +1,27 @@
+<div class="calendar-date-custom">
+    <div class="date-selected" (click)="picker.open()">
+        <mat-form-field class="field-zero-width" appearance="outline">
+            <input matInput (dateChange)="onDateSelect($event)" [matDatepicker]="picker" hidden>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-icon [svgIcon]="'calendar_today'"></mat-icon>
+        <span>{{selectedDate | jalali: 'dateMonthName'}}</span>
+    </div>
+    <div class="box-date-list">
+        <div class="arrow arrow-right" (click)="goToPreviousWeek()">
+            <mat-icon>keyboard_arrow_right</mat-icon>
+        </div>
+        <div class="list-data">
+            @for (item of weekListDate; track $index) {
+            <div class="item-date" (click)="changeDate(item)"
+                [ngClass]="{'active': areDatesEqual(this.selectedDate, item)}">
+                <p>{{item | jalali: 'day'}}</p>
+                <p>{{item | jalali: 'dayNumber'}}</p>
+            </div>
+            }
+        </div>
+        <div class="arrow arrow-left" (click)="goToNextWeek()">
+            <mat-icon>keyboard_arrow_left</mat-icon>
+        </div>
+    </div>
+</div>

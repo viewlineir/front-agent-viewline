@@ -1,0 +1,63 @@
+<div class="user-toolbar">
+    <div class="img-arrow" (click)="actionToggle()">
+        <picture>
+            <source media="(min-width:1024px)" [srcset]="appConfig.imagePath + 'images/icon/avatar.svg'">
+            <source media="(min-width: 0px)" [srcset]="appConfig.imagePath + 'images/icon/avatar-white.svg'">
+            <img [src]="appConfig.imagePath + 'images/icon/avatar.svg'" alt="" />
+        </picture>
+        <span class="icon">
+            <mat-icon matSuffix>arrow_drop_down</mat-icon>
+        </span>
+    </div>
+    <div class="dropdown-user" [ngClass]="{'show': showList}">
+        <div class="user-info">
+            <div class="img">
+                <img src="./assets/images/pro-default.svg" alt="" />
+            </div>
+            <span>{{displayName}}</span>
+        </div>
+        <ul class="list">
+            <li>
+                <a [routerLink]="'/'">
+                    <mat-icon matSuffix [svgIcon]="'dashboard_plus'"></mat-icon>
+                    <span>
+                        میز کار من
+
+                        <mat-icon>keyboard_arrow_left</mat-icon>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <mat-icon matSuffix [svgIcon]="'notification'"></mat-icon>
+                    <span>
+                        اطلاعیه ها
+
+                        <i class="count">4</i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <mat-icon matSuffix [svgIcon]="'notification'"></mat-icon>
+                    <span>
+                        پروفایل من
+
+                        <mat-icon>keyboard_arrow_left</mat-icon>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a (click)="logout()">
+                    <mat-icon matSuffix [svgIcon]="'logout'"></mat-icon>
+                    <span>
+                        خروج از حساب کاربری
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    @if(showList){
+    <div class="overlay" (click)="actionToggle()"></div>
+    }
+</div>

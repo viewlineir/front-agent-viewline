@@ -1,0 +1,69 @@
+app-agent-code {
+    .agent-code {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-m);
+        border-radius: 8px;
+        border: 2px dashed var(--gray-7);
+        padding: var(--spacing-l) var(--spacing-s);
+        background: var(--white);
+
+        .code-copy {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-s);
+            justify-content: space-between;
+            flex-wrap: wrap;
+            .code-data {
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: var(--spacing-s);
+
+                .title {
+                    font-weight: 600;
+                    font-size: 16px;
+                    line-height: 100%;
+                    color: var(--gray-8);
+                }
+                .value {
+                    font-weight: 500;
+                    font-size: 18px;
+                    line-height: 200%;
+                    color: var(--gray-4);
+                }
+            }
+
+            .copy-share {
+                display: flex;
+                align-items: center;
+                gap: var(--spacing-s);
+                flex-wrap: wrap;
+
+                .btn-copy {
+                    width: fit-content;
+                    min-width: 72px;
+                }
+
+                .btn-share {
+                    width: fit-content;
+                    min-width: 107px;
+                }
+            }
+        }
+
+        .codes-list-button {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-s);
+            flex-wrap: wrap;
+
+            .btn-jnf {
+                width: fit-content;
+                min-width: 133px;
+            }
+        }
+    }
+}

@@ -1,0 +1,33 @@
+app-sort-count {
+    display: block;
+    margin-bottom: var(--spacing-s);
+
+    .sort-count {
+        display: flex;
+        align-items: center;
+
+        .count-title {
+            font-size: 14px;
+            font-weight: 500;
+            line-height: normal;
+            text-align: right;
+            color: var(--gray-4);
+        }
+
+        .input-text-field {
+            width: fit-content;
+            min-width: 125px;
+            margin-right: auto;
+
+            .mat-mdc-select-value {
+                font-size: 14px;
+                line-height: normal;
+                color: var(--gray-6);
+            }
+
+            .icon {
+                color: var(--gray-4);
+            }
+        }
+    }
+}

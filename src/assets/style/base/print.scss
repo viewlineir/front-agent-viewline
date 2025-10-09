@@ -1,0 +1,22 @@
+@media print {
+    .dialog-purchased-courses .header-dialog .close-dialog,
+    .dialog-purchased-courses .button-box-dialog {
+        display: none !important;
+    }
+
+    .dialog-purchased-courses {
+        box-shadow: none !important;
+        background: #fff !important;
+    }
+
+    .mat-mdc-dialog-surface {
+        box-shadow: none !important;
+        border: 1px solid #ddd;
+    }
+
+    body {
+        background: #fff !important;
+        -webkit-print-color-adjust: economy;
+        print-color-adjust: economy;
+    }
+}

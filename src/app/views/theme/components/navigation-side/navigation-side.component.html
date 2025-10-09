@@ -1,0 +1,20 @@
+<div class="navigation-side">
+    <div class="logo-side">
+        <a [routerLink]="'/'" [ngClass]="{'hide': navigationAction}">
+            <img src="./assets/images/logo.png" alt="" />
+            <!-- <img src="./assets/images/logo-white.svg" alt="" /> -->
+        </a>
+        <div class="toggle" (click)="actionNavigation()">
+            <i class="fa-regular fa-bars"></i>
+        </div>
+    </div>
+    <ul class="side-menu-list" [ngClass]="{'minimize': navigationAction}">
+        @for (item of navigationService.navigationList; track $index) {
+        <li class="side-menu-item">
+            @for (child of item.listChild; track $index) {
+            <app-navigation-item [level]="0" [item]="child" />
+            }
+        </li>
+        }
+    </ul>
+</div>

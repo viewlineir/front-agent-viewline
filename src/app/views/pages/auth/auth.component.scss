@@ -1,0 +1,38 @@
+@import 'src/assets/style/base/breakpoints.scss';
+app-auth {
+    .auth-holder {
+        display: flex;
+        flex-wrap: wrap;
+        height: 100vh;
+        overflow: hidden;
+
+        .img-auth {
+            width: calc(100% - 650px);
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+
+            @include lt-desktop {
+                display: none;
+            }
+
+            img {
+                width: 100%;
+                object-fit: cover;
+                height: 100%;
+            }
+        }
+
+        .content-auth {
+            width: 650px;
+            height: 100vh;
+            position: relative;
+            overflow-y: auto;
+            padding: var(--spacing-xxl-8) var(--spacing-s);
+
+            @include lt-desktop {
+                width: 100%;
+            }
+        }
+    }
+}

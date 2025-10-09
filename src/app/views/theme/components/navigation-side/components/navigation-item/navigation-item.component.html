@@ -1,0 +1,36 @@
+<div class="navigation-item">
+    @if (item.type === navigationType.Dropdown) {
+    <a (click)="toggleDropDown()">
+        <span class="icon">
+            @if(item.isSvgIcon){
+            <mat-icon [svgIcon]="item.icon"></mat-icon>
+            } @else {
+            <mat-icon>{{item.icon}}</mat-icon>
+            }
+        </span>
+        <span class="title">{{item.label}}</span>
+        <i *ngIf="item.type === navigationType.Dropdown" class="ico-arrow fa-solid fa-angle-left"></i>
+    </a>
+    } @else {
+    <a [routerLink]="item.route" [routerLinkActiveOptions]="item.routerLinkActiveOptions || { exact: false }"
+        routerLinkActive="active">
+        <span class="icon">
+            @if(item.isSvgIcon){
+            <mat-icon [svgIcon]="item.icon"></mat-icon>
+            } @else {
+            <mat-icon>{{item.icon}}</mat-icon>
+            }
+        </span>
+        <span class="title">{{item.label}}</span>
+    </a>
+    }
+    @if (item.type === navigationType.Dropdown) {
+    <ul class="navigation-list-child" [ngClass]="{'show': isOpen}">
+        @for (childItem of item.children; track $index) {
+        <li>
+            <app-navigation-item [item]="childItem" [level]="level + 1" />
+        </li>
+        }
+    </ul>
+    }
+</div>

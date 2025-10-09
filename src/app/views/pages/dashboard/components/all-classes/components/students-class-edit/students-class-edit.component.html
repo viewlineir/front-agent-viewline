@@ -1,0 +1,97 @@
+<div class="holder-buttons-list">
+    <div class="btn-jnf btn-outline">
+        <a class="button color-primary" mat-stroked-button disableRipple="true" color="primary"
+            [disabled]="dataSource.loadingExcel$ | async" appMousePress
+            [ngClass]="{'loading': dataSource.loadingExcel$ | async}" (click)="downloadExcel()">
+            <span class="text">
+                <i class="fa-regular fa-file-excel"></i>
+                دانلود Excel
+            </span>
+        </a>
+    </div>
+</div>
+<div class="holder-data">
+    <app-student-class-filter [loading]="dataSource.loading$ | async" />
+
+    <div class="data-table">
+        <div class="table-wrapper">
+            <table matSort (matSortChange)="sortData($event)" mat-table [dataSource]="dataSource"
+                class="table-custom student-table">
+                <!-- row Column -->
+                <ng-container matColumnDef="row">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        <span class="row">ردیف</span>
+                    </th>
+                    @if(pageNumber > 1){
+                    <td mat-cell *matCellDef="let element; let i = index"> {{((pageNumber - 1) * pageSize)+ (i + 1)}}
+                    </td>
+                    } @else {
+                    <td mat-cell *matCellDef="let element; let i = index"> {{i + 1}} </td>
+                    }
+                </ng-container>
+
+                <!-- pictureProfile Column -->
+                <ng-container matColumnDef="pictureProfile">
+                    <th mat-header-cell *matHeaderCellDef> عکس پروفایل </th>
+                    <td mat-cell *matCellDef="let element">
+                        <div class="img">
+                            @if(element.profilePicture !== ''){
+                            <img [src]="element.profilePicture" alt="">
+                            } @else {
+                            <img src="./assets/images/pro-default.svg" alt="" />
+                            }
+                        </div>
+                    </td>
+                </ng-container>
+
+                <!-- firstName Column -->
+                <ng-container matColumnDef="firstName">
+                    <th mat-header-cell *matHeaderCellDef> نام </th>
+                    <td mat-cell *matCellDef="let element">
+                        {{element.firstname}}
+                    </td>
+                </ng-container>
+
+                <!-- lastName Column -->
+                <ng-container matColumnDef="lastName">
+                    <th mat-header-cell *matHeaderCellDef> نام خانوادگی </th>
+                    <td mat-cell *matCellDef="let element">
+                        {{element.lastname}}
+                    </td>
+                </ng-container>
+
+                <!-- registerDate Column -->
+                <ng-container matColumnDef="registerDate">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                        تاریخ ثبت نام
+                        <span class="icon-sort">
+                            <mat-icon class="icon-arrow up">arrow_drop_up</mat-icon>
+                            <mat-icon class="icon-arrow down">arrow_drop_down</mat-icon>
+                        </span>
+                    </th>
+                    <td mat-cell *matCellDef="let element">
+                        {{element.registerDate | jalali}}
+                    </td>
+                </ng-container>
+
+
+                <!-- mobile Column -->
+                <ng-container matColumnDef="mobile">
+                    <th mat-header-cell *matHeaderCellDef> موبایل </th>
+                    <td mat-cell *matCellDef="let element">
+                        {{element.mobile}}
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+            <mat-progress-bar *ngIf="dataSource.loading$ | async" mode="query"></mat-progress-bar>
+            @if((dataSource.length$ | async)
+            < 1 && !(dataSource.loading$ | async)){ <app-empty-list />
+            }
+        </div>
+        <app-pagination-share [pageSize]="pageSize" [totalCount]="dataSource.length$ | async"
+            (pageNumber)="pageNumberSelected($event)" />
+    </div>
+</div>

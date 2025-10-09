@@ -1,0 +1,21 @@
+app-countdown {
+    .countdown-holder {
+        text-align: center;
+        position: relative;
+
+        .timer {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.43;
+            color: var(--on-surface-medium-emphasis);
+        }
+
+        .resend-code {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.43;
+            color: var(--secondary-light);
+            cursor: pointer;
+        }
+    }
+}

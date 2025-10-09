@@ -1,0 +1,25 @@
+<div class="crud-videos-list-upload">
+    @for (item of [1,2,3]; track $index) {
+    <div class="item-video paused">
+        <video class="video" controls [poster]="'./assets/images/login.jpg'">
+            <source [src]="'./assets/videos/1.mp4'" />
+        </video>
+        <span class="icon-play" (click)="togglePlay($event)">
+            <mat-icon class="play">play_arrow</mat-icon>
+            <mat-icon class="pause">pause</mat-icon>
+        </span>
+        <span class="icon-delete">
+            <mat-icon>delete_outline</mat-icon>
+        </span>
+    </div>
+    }
+
+    <div class="button-upload" (click)="uploadVideoDialog()">
+        <mat-icon>add_circle_outline</mat-icon>
+        <p>افزودن ویدئو</p>
+    </div>
+
+    <div class="alert-video-size">
+        میتوانید حداکثر 10 ویدئو و هر یک با فرمت MP4 و حداکثر 300  مگابایت، درج نمایید
+    </div>
+</div>

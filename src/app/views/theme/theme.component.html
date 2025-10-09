@@ -1,0 +1,15 @@
+<div class="container-all">
+    <div class="side" [ngClass]="{'active': navigationAction}">
+        <app-navigation-side />
+    </div>
+    <div class="main" [ngClass]="{'active': navigationAction}">
+        <div class="toolbar">
+            <app-toolbar-side />
+        </div>
+        <div class="content-main">
+            <div class="container-pv">
+                <router-outlet />
+            </div>
+        </div>
+    </div>
+</div>

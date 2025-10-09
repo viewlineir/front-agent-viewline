@@ -1,0 +1,14 @@
+<div class="alert-box-container"
+  [ngClass]="{'success': type === alertBoxType.Success, 'warning': type=== alertBoxType.Error, 'accent': type=== alertBoxType.Warning,'info': type=== alertBoxType.Info}">
+  <div class="header" *ngIf="haveHeader">
+    <!-- <i id="icon" class="{{iconName}}"></i> -->
+    <i id="icon" [ngClass]="type=== alertBoxType.Success? 'fa-regular fa-check' : 'far fa-exclamation-circle'"></i>
+    <span class="text">{{title}}</span>
+  </div>
+  <ng-container *ngIf="text instanceof Array else notArray">
+    <div class="alert-box-content" *ngFor="let item of text">{{item}}</div>
+  </ng-container>
+  <ng-template #notArray>
+    <div class="alert-box-content">{{text}}</div>
+  </ng-template>
+</div>

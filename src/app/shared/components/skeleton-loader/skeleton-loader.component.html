@@ -1,0 +1,5 @@
+<ng-container [ngSwitch]="type">
+    <div class="item-skeleton card" *ngSwitchCase="'card'"></div>
+    <div class="item-skeleton link" *ngSwitchCase="'link'"></div>
+    <div class="item-skeleton circle" *ngSwitchCase="'circle'"></div>
+</ng-container>

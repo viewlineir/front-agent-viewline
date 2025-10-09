@@ -1,0 +1,42 @@
+<form [formGroup]="form">
+    <div class="filters-box student-class-filter">
+        <!--firstName-->
+        <mat-form-field appearance="outline" class="input-text-field">
+            <input type="text" placeholder="جستجوی نام" matInput formControlName="firstName">
+            <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+
+        <!--lastName-->
+        <mat-form-field appearance="outline" class="input-text-field">
+            <input type="text" placeholder="جستجوی نام خانوادگی" matInput formControlName="lastName">
+            <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+
+        <!--mobile-->
+        <mat-form-field appearance="outline" class="input-text-field">
+            <input type="text" placeholder="موبایل" matInput formControlName="mobile">
+            <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field>
+
+
+        <div class="buttons-filter">
+            <div class="btn-jnf btn-text">
+                <a class="button" (click)="ResetFilters()" [disabled]="loading || form.invalid" appMousePress mat-button
+                    disableRipple="true" color="primary">
+                    <span class="text">
+                        حذف فیلتر
+                    </span>
+                </a>
+            </div>
+            <div class="btn-jnf btn-filled">
+                <a class="button" (click)="loadFilters()" [disabled]="loading || form.invalid" mat-raised-button
+                    disableRipple="true" color="primary">
+                    <span class="text">
+                        جستجو
+                    </span>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</form>

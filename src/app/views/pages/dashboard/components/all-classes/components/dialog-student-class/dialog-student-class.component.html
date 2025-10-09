@@ -1,0 +1,14 @@
+<div class="custom-dialog-container dialog-student-class">
+    <div class="header-dialog has-title">
+        <h2 class="title">{{title}}</h2>
+        <span class="close-dialog" (click)="close()">
+            <i class="fa-regular fa-xmark"></i>
+        </span>
+    </div>
+
+    <div class="content-dialog">
+        @if(idClass){
+        <app-students-class-edit [idClass]="idClass" [title]="titleClass" class="list-students" />
+        }
+    </div>
+</div>

@@ -1,0 +1,10 @@
+<mat-form-field class="input-text-field select-text-field-toolbar" appearance="outline">
+    <mat-select [formControl]="academicYear"> 
+        @for (item of listSal; track $index) {
+        <mat-option [value]="item.key" (click)="changeYear(item)">سال تحصیلی {{item.value}}</mat-option>
+        }
+    </mat-select>
+    <span class="icon">
+        <mat-icon matSuffix>keyboard_arrow_down</mat-icon>
+    </span>
+</mat-form-field>

@@ -1,0 +1,26 @@
+app-date-time-format {
+    .date-holder {
+        .date-item {
+            font-size: 14px;
+            font-weight: 500;
+            line-height: normal;
+            color: var(--gray-4);
+            margin-bottom: 8px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        &.is-row {
+            display: flex;
+            align-items: center;
+            flex-direction: row-reverse;
+            gap: 8px;
+
+            .date-item {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

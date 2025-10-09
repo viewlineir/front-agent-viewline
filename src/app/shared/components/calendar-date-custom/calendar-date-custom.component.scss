@@ -1,0 +1,105 @@
+app-calendar-date-custom {
+    display: block;
+    width: 100%;
+
+    .calendar-date-custom {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: var(--spacing-m);
+
+        .date-selected {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: var(--spacing-m);
+            position: relative;
+            cursor: pointer;
+
+            .field-zero-width {
+                opacity: 0;
+                visibility: hidden;
+                width: 0;
+                height: 0;
+                position: absolute;
+                right: 0;
+                left: 0;
+                margin: auto;
+                bottom: 0;
+                top: 0;
+
+                .mat-mdc-text-field-wrapper {
+                    height: 0 !important;
+                    width: 0 !important;
+                }
+            }
+
+            .mat-icon {
+                color: var(--orange-12);
+            }
+
+            span {
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 2;
+                color: var(--gray-5);
+            }
+        }
+
+        .box-date-list {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-s);
+
+            .arrow {
+                width: 24px;
+                height: 24px;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .list-data {
+                display: flex;
+                gap: var(--spacing-s);
+                width: 509px;
+                overflow: hidden;
+
+                .item-date {
+                    min-width: 59px;
+                    height: 60px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    gap: var(--spacing-xxs);
+                    padding: var(--spacing-xs) var(--spacing-s);
+                    border-radius: 8px;
+                    border: solid 1px var(--gray-3);
+                    background-color: var(--white);
+                    cursor: pointer;
+
+                    p {
+                        font-size: 14px;
+                        font-weight: normal;
+                        line-height: 1.4;
+                        color: var(--gray-8);
+                    }
+
+                    &.active {
+                        background-color: var(--orange-13);
+                        border-color: var(--orange-13);
+                        pointer-events: none;
+
+                        p {
+                            color: var(--white);
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}

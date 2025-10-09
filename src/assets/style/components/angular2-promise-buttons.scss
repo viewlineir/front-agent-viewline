@@ -1,0 +1,27 @@
+.loader {
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  i {
+    font-size: 20px;
+    color: var(--primary-t-5);
+  }
+
+}
+
+button .loader:not(:required) {
+  opacity: 0;
+  transition: 0.3s margin ease-out, 0.2s opacity ease-out;
+}
+
+button.loading .loader {
+  opacity: 1;
+  transition: 0.3s margin ease-out, 0.2s opacity ease-out;
+}

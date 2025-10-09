@@ -1,0 +1,11 @@
+<div class="date-holder" [ngClass]="{'is-row': isRow}">
+    <div class="date date-item">
+        <span>{{ date | jalali: "date"}}</span>
+    </div>
+    @if (isRow) {
+    <span class="date-item">-</span>
+    }
+    <div class="time date-item">
+        <span>{{ date | jalali: "time"}}</span>
+    </div>
+</div>
