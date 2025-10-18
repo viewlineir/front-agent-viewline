@@ -1,5 +1,5 @@
-import { CommonModule, DOCUMENT } from '@angular/common';
-import { ChangeDetectorRef, Component, ElementRef, Inject, Input, ViewEncapsulation } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
@@ -36,10 +36,7 @@ export class DialogPurchasedCoursesComponent {
 
 
   constructor(
-    public dialogRef: MatDialogRef<DialogPurchasedCoursesComponent>,
-    private host: ElementRef<HTMLElement>,
-    @Inject(DOCUMENT) private document: Document,
-    private cdr: ChangeDetectorRef
+    public dialogRef: MatDialogRef<DialogPurchasedCoursesComponent>
   ) {
 
   }
@@ -63,7 +60,7 @@ export class DialogPurchasedCoursesComponent {
     this.dialogRef.close();
   }
 
-  print() {
+  print(): void {
     window.print();
   }
   //#endregion

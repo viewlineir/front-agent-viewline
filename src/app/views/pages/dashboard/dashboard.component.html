@@ -2,14 +2,9 @@
     <div class="container-pv">
         <app-card-count [dataDashboard]="dataDashboard" />
         @if(dataDashboard){
-        <app-agent-code [lastAgentCode]="dataDashboard.lastAgentCode" />
+        <app-agent-code [lastAgentCode]="dataDashboard.lastAgentCode" [totalRegisterWithCode]="dataDashboard.studentCount" />
         }
 
         <app-student-list [dataDashboard]="dataDashboard" />
-        <!-- @if(dataDashboard && dataDashboard.todaysClasses.length> 0){
-        <app-class-today [listData]="dataDashboard.todaysClasses" />
-        } -->
-        <!-- <app-all-classes /> -->
-        <!-- <app-last-comments /> -->
     </div>
 </div>

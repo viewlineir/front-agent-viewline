@@ -1,0 +1,136 @@
+<div class="custom-dialog-container dialog-discont-code-list">
+    <div class="header-dialog has-title">
+        <h2 class="title">لیست کد های نمایندگی شما</h2>
+        <span class="close-dialog" (click)="close()">
+            <i class="fa-regular fa-xmark"></i>
+        </span>
+    </div>
+
+    <div class="content-dialog">
+
+        <div class="data-all-report">
+            <div class="row">
+                <div class="title-value">
+                    <div class="title">
+                        تعداد کل ثبت نامی از کدها :
+                    </div>
+                    <div class="value">
+                        <span class="orange">{{totalRegisterWithCode| number}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="title-value">
+                    <div class="title gray">تعداد کد های شما :</div>
+                    <div class="value">
+                        <span>{{totalCount | number}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-table">
+            <div class="table-wrapper">
+                <table mat-table [dataSource]="tableData" class="table-custom table-dashboard">
+                    <!-- row Column -->
+                    <ng-container matColumnDef="row">
+                        <th mat-header-cell *matHeaderCellDef>
+                            <!-- <span class="row-title">ردیف</span> -->
+                        </th>
+                        @if(pageNumber > 1){
+                        <td mat-cell *matCellDef="let element; let i = index">
+                            {{ (pageNumber - 1) * pageSize + (i + 1) }}
+                        </td>
+                        } @else {
+                        <td mat-cell *matCellDef="let element; let i = index">{{ i + 1 }}</td>
+                        }
+                    </ng-container>
+
+                    <!-- code Column -->
+                    <ng-container matColumnDef="code">
+                        <th mat-header-cell *matHeaderCellDef> کد </th>
+                        <td mat-cell *matCellDef="let element">
+                            {{element.discountCode}}
+                        </td>
+                    </ng-container>
+
+                    <!-- createdOnUtc Column -->
+                    <ng-container matColumnDef="createdOnUtc">
+                        <th mat-header-cell *matHeaderCellDef> تاریخ صدور </th>
+                        <td mat-cell *matCellDef="let element">
+                            @if(element.createdOnUtc !== null || element.createdOnUtc !== ''){
+                            {{element.createdOnUtc.split('T')[0] | jalali}}
+                            }@else{-}
+                        </td>
+                    </ng-container>
+
+                    <!-- discountMultiPercentAgent Column -->
+                    <ng-container matColumnDef="discountMultiPercentAgent">
+                        <th mat-header-cell *matHeaderCellDef> سهم نماینده </th>
+                        <td mat-cell *matCellDef="let element">
+                            @for(item of element.discountMultiPercentAgent; track $index){
+                            <p>
+                                {{item.percentOrValue | number}}
+                                @if(item.isPercent){%}@else{تومان}
+                            </p>
+                            }
+                        </td>
+                    </ng-container>
+
+                    <!-- discountMultiPercentStudent Column -->
+                    <ng-container matColumnDef="discountMultiPercentStudent">
+                        <th mat-header-cell *matHeaderCellDef [innerHTML]="'تخفیف  <br/> دانش آموز'"></th>
+                        <td mat-cell *matCellDef="let element">
+                            @for(item of element.discountMultiPercentStudent; track $index){
+                            <p>
+                                {{item.percentOrValue | number}}
+                                @if(item.isPercent){%}@else{تومان}
+                            </p>
+                            }
+                        </td>
+                    </ng-container>
+
+                    <!-- registerCount Column -->
+                    <ng-container matColumnDef="registerCount">
+                        <th mat-header-cell *matHeaderCellDef  [innerHTML]="'تعداد  <br/> ثبت نام'"></th>
+                        <td mat-cell *matCellDef="let element">
+                            {{element.registerCount | number}}
+                        </td>
+                    </ng-container>
+
+                    <!-- incomeFromPaidAmount Column -->
+                    <ng-container matColumnDef="incomeFromPaidAmount">
+                        <th mat-header-cell *matHeaderCellDef>
+                            <div class="title-value">
+                                <span class="title">کل درآمد</span>
+                                <span class="value">از پرداختی ها</span>
+                            </div>
+                        </th>
+                        <td mat-cell *matCellDef="let element">
+                            {{element.incomeFromPaidAmount | number}}
+                        </td>
+                    </ng-container>
+
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+
+                @if(totalCount
+                < 1){ <app-empty-list />}
+
+                <app-pagination-share [pageSize]="pageSize" [pageNumberInput]="pageNumber" [totalCount]="totalCount"
+                    (pageNumber)="pageNumberSelected($event)" />
+            </div>
+        </div>
+
+    </div>
+    <div class="button-box-dialog">
+        <div class="btn-jnf btn-filled">
+            <button class="button" mat-raised-button disableRipple="true" [disabled]="true" color="primary">
+                <span class="text">چاپ</span>
+            </button>
+        </div>
+    </div>
+
+</div>
