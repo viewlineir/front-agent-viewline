@@ -1,0 +1,57 @@
+<div class="history-transactions">
+    <h3 class="title-section">
+        تاریخچه تراکنش ها
+    </h3>
+
+    <div class="data-all-report">
+        <div class="row">
+            <div class="title-value">
+                <div class="title">
+                    مجموع مبلغ پرداخت شده :
+                </div>
+                <div class="value">
+                    <span class="orange">{{dataDashboard?.totalPaid | number}}</span>
+                    (تومان)
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-filter-history-transactions class="filter" [loading]="loadingTable" />
+
+    <div class="data-table">
+        <div class="table-wrapper">
+            <table mat-table [dataSource]="tableData" class="table-custom table-dashboard">
+
+
+                <!-- createDate Column -->
+                <ng-container matColumnDef="createDate">
+                    <th mat-header-cell *matHeaderCellDef>تاریخ</th>
+                    <td mat-cell *matCellDef="let element">
+                        @if(element.userPayoutDate !== null){
+                        {{ element.userPayoutDate.split("T")[0] | jalali }}
+                        } @else{-}
+                    </td>
+                </ng-container>
+
+                <!-- price Column -->
+                <ng-container matColumnDef="price">
+                    <th mat-header-cell *matHeaderCellDef> مبلغ </th>
+                    <td mat-cell *matCellDef="let element">
+                        {{element.amount | number}}
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+            @if(loadingTable){
+            <mat-progress-bar mode="query"></mat-progress-bar>
+            }
+            @if(totalCount
+            < 1 && !loadingTable){ <app-empty-list />
+            }
+        </div>
+        <app-pagination-share [pageSize]="pageSize" [pageNumberInput]="pageNumber" [totalCount]="totalCount"
+            (pageNumber)="pageNumberSelected($event)" />
+    </div>
+</div>

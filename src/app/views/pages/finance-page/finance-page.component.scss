@@ -1,0 +1,12 @@
+app-finance-page {
+    .finance-page {
+        padding-top: var(--spacing-m);
+
+        .container-pv {
+            app-history-transactions {
+                display: block;
+                margin-top: var(--spacing-xxl-2);
+            }
+        }
+    }
+}

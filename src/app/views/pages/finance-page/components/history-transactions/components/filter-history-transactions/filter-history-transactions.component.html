@@ -1,0 +1,35 @@
+<form [formGroup]="form">
+    <div class="filters-box classes-filter">
+        <div class="row row-date-title">
+            <div class="item-date">
+                <label>از تاریخ</label>
+                <!-- userPayoutDate_From -->
+                <mat-form-field class="input-text-field" (click)="picker1.open()" appearance="outline">
+                    <input matInput placeholder="از" readonly="true" [matDatepicker]="picker1"
+                        formControlName="userPayoutDate_From">
+                    <mat-datepicker #picker1></mat-datepicker>
+                    @if(f.userPayoutDate_From.value){
+                    <div class="clear show" (click)="resetField('userPayoutDate_From')">
+                        <i class="fa-regular fa-circle-xmark"></i>
+                    </div>
+                    }
+                </mat-form-field>
+            </div>
+            <div class="item-date">
+                <label>تا تاریخ</label>
+                <!-- userPayoutDate_To -->
+                <mat-form-field class="input-text-field" (click)="picker2.open()" appearance="outline">
+                    <input matInput placeholder="تا" readonly="true" [matDatepicker]="picker2"
+                        formControlName="userPayoutDate_To">
+                    <mat-datepicker #picker2></mat-datepicker>
+
+                    @if(f.userPayoutDate_To.value){
+                    <div class="clear show" (click)="resetField('userPayoutDate_To')">
+                        <i class="fa-regular fa-circle-xmark"></i>
+                    </div>
+                    }
+                </mat-form-field>
+            </div>
+        </div>
+    </div>
+</form>

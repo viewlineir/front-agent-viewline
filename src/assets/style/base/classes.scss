@@ -10,11 +10,23 @@
   background-color: var(--white);
 }
 
-
 .holder-buttons-list {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--spacing-s);
   margin-bottom: var(--spacing-s);
+}
+
+.container-pv {
+  margin: 0 auto;
+  width: 1061px !important;
+  max-width: 100%;
+
+  .title-section {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: normal;
+    color: var(--gray-6);
+  }
 }

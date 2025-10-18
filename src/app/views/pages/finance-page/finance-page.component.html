@@ -1,0 +1,8 @@
+<div class="finance-page">
+    <div class="container-pv">
+        <app-card-count [dataDashboard]="dataDashboard" />
+        @if(dataDashboard){
+        <app-history-transactions [dataDashboard]="dataDashboard" />
+        }
+    </div>
+</div>

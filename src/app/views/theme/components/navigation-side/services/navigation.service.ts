@@ -42,7 +42,7 @@ export class NavigationService {
             type: ENavigationType.Link,
             label: 'امور مالی',
             permission: '',
-            route: '/transactions',
+            route: '/finance',
             icon: 'percent',
           },
           {

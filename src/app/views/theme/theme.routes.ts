@@ -14,9 +14,16 @@ export const ThemeRoutes: Routes = [
             {
                 path: 'dashboard',
                 loadComponent: () => import('../pages/dashboard/dashboard.component').then(c => c.DashboardComponent),
-                resolve:{
+                resolve: {
                     data: DashboardResolverService
                 }
+            },
+            {
+                path: 'finance',
+                loadChildren: () => import('../pages/finance-page/finance-page.routes').then(r => r.FinancePageRoutes),
+                resolve: {
+                    data: DashboardResolverService
+                },
             },
         ]
     }
