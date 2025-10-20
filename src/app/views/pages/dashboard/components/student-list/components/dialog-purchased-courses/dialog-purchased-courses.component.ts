@@ -5,6 +5,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 import { EmptyListComponent } from '@app/shared/components/empty-list/empty-list.component';
 import { IOrderItemModel } from '@app/views/pages/dashboard/models/order-item.model';
+import { EOrderStatusType } from '@app/views/pages/dashboard/types/order-status.type';
 
 @Component({
   selector: 'app-dialog-purchased-courses',
@@ -34,6 +35,9 @@ export class DialogPurchasedCoursesComponent {
 
   // boolean
 
+
+  // types
+  orderStatusType = EOrderStatusType;
 
   constructor(
     public dialogRef: MatDialogRef<DialogPurchasedCoursesComponent>

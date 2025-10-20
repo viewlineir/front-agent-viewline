@@ -33,6 +33,7 @@ export class NotificationToolbarComponent {
   // #region PUBLIC 
   //==================================
   actionToggle(): void {
+    return
     this.showNotifList = !this.showNotifList;
   }
   //#endregion

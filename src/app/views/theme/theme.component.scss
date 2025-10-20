@@ -17,8 +17,8 @@ app-theme {
         }
 
         &.active {
-            // width: 80px;
-            width: 266px;
+            width: 80px;
+            // width: 266px;
 
             @include lt-desktop {
                 right: 0px;
