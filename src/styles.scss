@@ -1,15 +1,15 @@
-@import 'assets/style/colors/colors.scss';
-@import 'assets/style/colors/material_theme.scss';
-@import 'assets/fonts/font.scss';
-@import 'assets/style/base/base.scss';
+@import 'src/assets/style/colors/colors.scss';
+@import 'src/assets/style/colors/material_theme.scss';
+@import 'src/assets/fonts/font.scss';
+@import 'src/assets/style/base/base.scss';
 
 
 // components
-@import 'assets/style/components/text-fields.scss';
-@import 'assets/style/components/button.scss';
-@import 'assets/style/components/table-box.scss';
-@import 'assets/style/components/filter.scss';
-@import 'assets/style/components/form-crud.scss';
-@import 'assets/style/components/alert-snak-bar.scss';
+@import 'src/assets/style/components/text-fields.scss';
+@import 'src/assets/style/components/button.scss';
+@import 'src/assets/style/components/table-box.scss';
+@import 'src/assets/style/components/filter.scss';
+@import 'src/assets/style/components/form-crud.scss';
+@import 'src/assets/style/components/alert-snak-bar.scss';
 
-@import 'assets/style/base/print.scss';
+@import 'src/assets/style/base/print.scss';
