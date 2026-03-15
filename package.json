@@ -24,6 +24,7 @@
     "@angular/platform-browser-dynamic": "^18.1.4",
     "@angular/router": "^18.1.4",
     "jalali-moment": "^3.3.11",
+    "material-design-icons-iconfont": "^6.7.0",
     "ngx-captcha": "^13.0.0",
     "ngx-image-cropper": "^7.2.1",
     "rxjs": "~7.8.0",

@@ -4,6 +4,7 @@ WORKDIR /app
 
 # نصب dependencies
 COPY package*.json ./
+COPY docker/.npmrc ./
 RUN npm ci
 COPY . .
 
